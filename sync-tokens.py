@@ -227,7 +227,7 @@ def sync_html(html_path: Path, tokens: dict, has_badges: bool):
             badge_pattern = re.compile(
                 rf'(<div class="spec">){re.escape(info["badge"])}\s*[\u00b7&middot;]+.*?(</div>)'
             )
-            html = badge_pattern.sub(lambda m: m.group(1) + new_badge + m.group(2), html, count=1)
+            html = badge_pattern.sub(lambda m: m.group(1) + new_badge + m.group(2), html)
 
     html_path.write_text(html, encoding="utf-8")
     print(f"  synced: {html_path.name}")
